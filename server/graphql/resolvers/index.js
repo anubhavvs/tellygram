@@ -1,11 +1,14 @@
-const groupResolvers = require('./group')
+const groupResolvers = require('./group');
+const userResolvers = require('./user');
 
-moduel.exports = {
+module.exports = {
     Query: {
-        ...groupResolvers.Query
+        ...groupResolvers.Query,
+        ...userResolvers.Query
     },
     Mutation: {
-        ...groupResolvers.Query
+        ...groupResolvers.Mutation,
+        ...userResolvers.Mutation
     },
     Message: {
         createdAt: (parent) => parent.createdAt.toISOString(),
