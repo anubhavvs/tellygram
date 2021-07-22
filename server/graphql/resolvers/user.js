@@ -85,7 +85,7 @@ module.exports = {
   
         const token = jwt.sign(
           { id: savedUser.id, username: savedUser.username },
-          JWT_SECRET
+          process.env.JWT_SECRET
         );
   
         return {
@@ -122,7 +122,7 @@ module.exports = {
   
         const token = jwt.sign(
           { id: user.id, username: user.username },
-          JWT_SECRET
+          process.env.JWT_SECRET
         );
   
         return {

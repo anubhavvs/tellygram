@@ -17,3 +17,5 @@ const registerValidator = (username, password) => {
       valid: Object.keys(errors).length < 1,
     };
 };
+
+module.exports = registerValidator;
