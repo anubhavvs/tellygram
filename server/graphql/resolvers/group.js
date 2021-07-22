@@ -6,7 +6,7 @@ const authValidator = require('./../../utils/authValidator');
 module.exports = {
     Query: {
         getGroups: async (_, __, context) => {
-          const loggedUser = authChecker(context);
+          const loggedUser = authValidator(context);
     
           try {
             let groupConversations = await Conversation.findAll({
@@ -99,7 +99,7 @@ module.exports = {
       },
       Mutation: {
         createGroup: async (_, args, context) => {
-          const loggedUser = authChecker(context);
+          const loggedUser = authValidator(context);
           const { name, participants } = args;
     
           if (name.trim() === '') {
@@ -148,7 +148,7 @@ module.exports = {
           }
         },
         removeGroupUser: async (_, args, context) => {
-          const loggedUser = authChecker(context);
+          const loggedUser = authValidator(context);
           const { conversationId, userId } = args;
     
           try {
@@ -195,7 +195,7 @@ module.exports = {
           }
         },
         addGroupUser: async (_, args, context) => {
-          const loggedUser = authChecker(context);
+          const loggedUser = authValidator(context);
           const { conversationId, participants } = args;
     
           if (!participants || participants.length === 0) {
@@ -253,7 +253,7 @@ module.exports = {
           }
         },
         editGroupName: async (_, args, context) => {
-          const loggedUser = authChecker(context);
+          const loggedUser = authValidator(context);
           const { conversationId, name } = args;
     
           if (name.trim() === '') {
@@ -286,7 +286,7 @@ module.exports = {
           }
         },
         deleteGroup: async (_, args, context) => {
-          const loggedUser = authChecker(context);
+          const loggedUser = authValidator(context);
           const { conversationId } = args;
     
           try {
@@ -312,7 +312,7 @@ module.exports = {
           }
         },
         leaveGroup: async (_, args, context) => {
-          const loggedUser = authChecker(context);
+          const loggedUser = authValidator(context);
           const { conversationId } = args;
     
           try {
