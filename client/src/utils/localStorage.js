@@ -4,9 +4,7 @@ const saveUser = (user) => {
     localStorage.setItem(storageToken, JSON.stringify(user));
 }
 
-const loadUser = () => {
-    JSON.parse(localStorage.getItem(storageToken));
-}
+const loadUser = () => JSON.parse(localStorage.getItem(storageToken));
 
 const removeUser = () => {
     localStorage.removeItem(storageToken);
