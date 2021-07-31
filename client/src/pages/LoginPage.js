@@ -7,6 +7,7 @@ import { LOGIN_USER } from '../graphql/mutations';
 import { useAuthContext } from '../context/auth';
 import { useStateContext } from '../context/state';
 import { getErrorMessage } from '../utils/helperFunctions';
+import ErrorAlert from '../components/ErrorAlert';
 
 const schema = yup.object({
     username: yup.string().required('Username required!'),
@@ -36,10 +37,8 @@ const LoginPage = () => {
                 reset();
             },
         });
-        console.log(errorMessage)
         client.clearStore();
     };
-
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
@@ -92,6 +91,7 @@ const LoginPage = () => {
                 </div>
                 </form>
             </div>
+            <ErrorAlert errorMessage={errorMessage} clearErrorMessage={() => setErrorMessage(null)} />
         </div>
     )
 }
