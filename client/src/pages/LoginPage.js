@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useApolloClient, useMutation } from '@apollo/client';
 import * as yup from 'yup';
@@ -40,7 +41,7 @@ const LoginPage = () => {
         client.clearStore();
     };
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 sm:px-6">
             <div className="max-w-md w-full space-y-8">
                 <div>
                 <h2 className="mt-6 text-left text-3xl font-extrabold text-gray-900">Login into your account!</h2>
@@ -90,6 +91,7 @@ const LoginPage = () => {
                     </button>
                 </div>
                 </form>
+                <p className="text-center font-medium">Dont't have an account? <Link to="/register" className="underline text-indigo-600">Sign Up</Link></p>
             </div>
             <ErrorAlert errorMessage={errorMessage} clearErrorMessage={() => setErrorMessage(null)} />
         </div>
