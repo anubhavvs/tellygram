@@ -5,3 +5,9 @@ export const getErrorMessage = (err) => {
         return err.message;
     }
 };
+
+export const truncateString = (string, maxCharLimit) => {
+    return string.length < maxCharLimit
+      ? string
+      : string.slice(0, maxCharLimit) + '...';
+};
