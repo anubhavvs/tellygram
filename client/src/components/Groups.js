@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { useQuery } from '@apollo/client';
 import { GET_GROUPS } from '../graphql/queries';
 import { useStateContext } from '../context/state';
@@ -20,8 +21,8 @@ const Groups = () => {
     }
 
     return (
-        <div className="flex-col items-center justify-center flex-none w-1/4 bg-gray-300 p-8">
-            <div className="flex flex-row justify-between items-center mb-8">
+        <div className="flex flex-col justify-center w-1/4 bg-gray-300 p-8">
+            <div className="flex flex-row justify-between items-center mb-6">
                 <p className="font-semibold text-2xl">Your Groups</p>
                 <button className="flex text-md opacity-80">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -34,6 +35,7 @@ const Groups = () => {
             {groupData && groupData.getGroups.length === 0 && (
                 <p className="text-xl rounded-xl bg-gray-400 px-2 py-5">You are not part of any group!☹️</p>
             )}
+            <Scrollbars autoHide hideTracksWhenNotNeeded>
             {groupData && groupData.getGroups.filter((group) =>group.name.toLowerCase().includes(searchText.toLocaleLowerCase())).map((group) => (
                 <div key={group.id} className={`h-20 text-white font-semibold flex space-x-7 py-2 px-3 mb-3 rounded-xl cursor-pointer hover:bg-gray-500 ${selectedChat?.chatType === 'group' && group.id === selectedChat.chatData.id ? `bg-gray-500` : `bg-gray-700`}`} onClick={() => selectChat(group, 'group')}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 my-auto rounded-full bg-white" fill="none" viewBox="0 -6 24 40" stroke="black">
@@ -42,6 +44,8 @@ const Groups = () => {
                     <p className="my-auto text-sm">{truncateString(group.name, 23)}</p>
                 </div>
             ))}
+            </Scrollbars>
+            
         </div>
     )
 }
