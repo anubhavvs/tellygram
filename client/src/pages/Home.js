@@ -9,7 +9,7 @@ const Home = () => {
     
     return (
         <div className="flex flex-row min-h-screen bg-gray-50">
-            <Sidebar changeTab={(value) => setTab(value)} />
+            <Sidebar changeTab={(value) => setTab(value)} selectedTab={tab} />
             { tab === 'chat' ? (
                 <Chats />
             ) : tab === 'users' ? (
