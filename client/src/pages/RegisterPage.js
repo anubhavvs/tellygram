@@ -14,7 +14,7 @@ const schema = yup.object({
     username: yup
         .string()
         .required('Username required!')
-        .max(20, 'Not more than 30 characters!')
+        .max(20, 'Not more than 20 characters!')
         .min(5, 'Not less than 5 characters!')
         .matches(
             /^[a-zA-Z0-9-_]*$/,
@@ -26,7 +26,7 @@ const schema = yup.object({
         .min(8, 'Not less than 8 characters!')
         .matches(
             /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-            'Must One Letter and One Number!'
+            'Must contain One Letter and One Number!'
         ),
     confirmPassword: yup
         .string()
