@@ -23,7 +23,7 @@ const Users = () => {
     return (
         <div className="flex flex-col justify-center w-1/4 bg-gray-300 p-8">
             <div className="flex flex-row justify-between items-center mb-6">
-                <p className="font-semibold text-2xl">All Users</p>
+                <p className="font-semibold text-3xl">All Users</p>
             </div>
             <Search placeholderText='Search Users...' searchText={searchText} onChange={value => setSearchText(value)}/>
             {userData && userData.getAllUsers.length === 0 && (

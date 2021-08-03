@@ -32,7 +32,7 @@ const Chats = () => {
     return (
         <div className="flex flex-col justify-center w-1/4 bg-gray-300 px-8 pt-8 pb-3">
             <div className="flex flex-row justify-between items-center mb-6">
-                <p className="font-semibold text-2xl">Chats</p>
+                <p className="font-semibold text-3xl">Chats</p>
             </div>
             <Scrollbars hideTracksWhenNotNeeded autoHide>
             {globalData && (

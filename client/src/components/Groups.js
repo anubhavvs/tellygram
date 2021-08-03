@@ -23,7 +23,7 @@ const Groups = () => {
     return (
         <div className="flex flex-col justify-center w-1/4 bg-gray-300 p-8">
             <div className="flex flex-row justify-between items-center mb-6">
-                <p className="font-semibold text-2xl">Your Groups</p>
+                <p className="font-semibold text-3xl">Your Groups</p>
                 <button className="flex text-md opacity-80">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />

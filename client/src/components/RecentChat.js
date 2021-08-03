@@ -5,7 +5,7 @@ const RecentChat = ({ body, type }) => {
     return (
         <div className="flex-1">
             <div className="flex flex-row justify-between">
-                <p className="mt-2 text-xl">
+                <p className="mt-2 text-lg">
                     {type === 'user'
                         ? truncateString(body.username, 20)
                         : truncateString(body.name, 20)
