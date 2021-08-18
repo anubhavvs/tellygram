@@ -28,4 +28,8 @@ export const formatRecentDate = (date) => {
         ? format(new Date(date), 'EEEE')
         : format(new Date(date), 'dd/MM/yy')
     return day;
-} 
+}
+
+export const formatDateInWords = (date) => {
+    return format(new Date(date), 'do MMM, yyyy')
+}
