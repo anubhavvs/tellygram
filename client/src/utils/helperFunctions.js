@@ -1,4 +1,4 @@
-import { isToday, isYesterday, format, differenceInCalendarDays } from 'date-fns';
+import { isSameDay, isToday, isYesterday, format, differenceInCalendarDays } from 'date-fns';
 
 export const getErrorMessage = (err) => {
     if(err.graphQLErrors[0]?.message) {
@@ -32,4 +32,20 @@ export const formatRecentDate = (date) => {
 
 export const formatDateInWords = (date) => {
     return format(new Date(date), 'do MMM, yyyy')
+}
+
+export const formatToYesterday = (date) => {
+    return isToday(new Date(date))
+        ? 'Today'
+        : isYesterday(new Date(date))
+        ? 'Yesterday'
+        : formatDateInWords(date);
+}
+
+export const formatBubbleTime = (date) => {
+    return format(new Date(date), "h':'mm a");
+  };
+
+export const sameDay = (prevDate, currentDate) => {
+    return isSameDay(new Date(prevDate), new Date(currentDate));
 }
