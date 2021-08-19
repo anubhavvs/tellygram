@@ -1,19 +1,11 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_ALL_USERS } from '../graphql/queries';
 import { useAuthContext } from '../context/auth';
 import { useStateContext } from '../context/state';
-import { getErrorMessage } from '../utils/helperFunctions';
 
 const Header = ({ info ,setInfo, addUser, setAddUser }) => {
     const { user } = useAuthContext();
-    const { selectedChat, notify } = useStateContext();
+    const { selectedChat } = useStateContext();
     const { username, name, participants, admin } = selectedChat.chatData;
-    const { data: userData, loading: loadingUsers } = useQuery(GET_ALL_USERS, {
-        onError: (err) => {
-          notify(getErrorMessage(err), 'error');
-        }
-    });
 
     const openAddUser = () => {
         if(info){
@@ -29,7 +21,7 @@ const Header = ({ info ,setInfo, addUser, setAddUser }) => {
     }
     
     return (
-        <div className="flex flex-row space-x-3 items-center p-5 border-b-2 border-gray-200 justify-between">
+        <div className="flex flex-row space-x-3 items-center p-5 border-b-2 border-gray-200 justify-between bg-indigo-900">
             <div className="flex flex-row items-center space-x-4 select-none">
             {selectedChat.chatType === 'public' ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 my-auto bg-white rounded-full" fill="none" viewBox="0 -3 24 30" stroke="black">
