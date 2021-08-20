@@ -12,7 +12,7 @@ const NotificationAlert = () => {
     const styles = {success: 'bg-green-100 text-green-900 border-green-200', error: 'bg-red-100 text-red-900 border-red-200'}
 
     return (
-        <div className={`py-3 absolute select-none top-12 left-0 right-0 w-max mx-auto px-3 ${severity === 'success' ? styles.success : styles.error} text-sm rounded-md border flex items-center`} role="alert">
+        <div className={`py-3 absolute select-none top-20 left-0 right-0 w-max mx-auto px-3 ${severity === 'success' ? styles.success : styles.error} text-sm rounded-md border flex items-center`} role="alert">
             <div className="w-4 mr-2">
                 {severity === 'success' ? (
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
