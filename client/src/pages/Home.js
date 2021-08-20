@@ -3,6 +3,7 @@ import Chats from '../components/Chats';
 import Groups from '../components/Groups';
 import Sidebar from '../components/Sidebar';
 import Users from '../components/Users';
+import Conversation from '../components/Conversation';
 
 const Home = () => {
     const [tab, setTab] = useState('chat');
@@ -17,6 +18,7 @@ const Home = () => {
             ) : (
                 <Groups />
             )}
+            <Conversation />
         </div>
     )
 }
