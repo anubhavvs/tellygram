@@ -215,7 +215,7 @@ const Conversation = () => {
         } else {
             return (
                 <Scrollbars ref={scrollbar}>
-                <div className="py-5 px-3 shadow-inner">
+                <div className="pt-5 pb-2 px-3 shadow-inner">
                     {messages.map((message, index) => {
                         const isSameDay = index !== 0 ? sameDay(messages[index-1].createdAt, message.createdAt) : false;
                         const isSameUser = index !== 0 && isSameDay && messages[index-1].senderId === message.senderId;
