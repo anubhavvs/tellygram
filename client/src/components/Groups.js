@@ -6,10 +6,12 @@ import { useStateContext } from '../context/state';
 import { getErrorMessage, truncateString } from '../utils/helperFunctions';
 import Loader from './Loader';
 import Search from './Search';
+import CreateModal from './CreateModal';
 
 const Groups = () => {
     const { selectedChat, selectChat, notify } = useStateContext();
     const [searchText, setSearchText] = useState('');
+    const [ showModal, setShowModal ] = useState(false);
     const { data: groupData, loading: loadingGroups } = useQuery(GET_GROUPS, {
         onError: (err) => {
             notify(getErrorMessage(err), 'error');
@@ -24,13 +26,14 @@ const Groups = () => {
         <div className="flex flex-col justify-center w-1/4 bg-gray-300 p-8">
             <div className="flex flex-row justify-between items-center mb-6">
                 <p className="font-semibold text-3xl">Your Groups</p>
-                <button className="flex text-md opacity-80">
+                <button className="flex text-md opacity-80" onClick={() => setShowModal(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
-                    Create Group
+                    New
                 </button>
             </div>
+            {showModal && ( <CreateModal setShowModal={setShowModal} showModal={showModal} />) }
             <Search placeholderText='Search Groups...' searchText={searchText} onChange={value => setSearchText(value)}/>
             {groupData && groupData.getGroups.length === 0 && (
                 <p className="text-xl rounded-xl bg-gray-400 px-2 py-5">You are not part of any group!☹️</p>

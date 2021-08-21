@@ -44,11 +44,6 @@ const stateReducer = (state, action) => {
                 ...state,
                 notification: null,
             };
-        case 'TOGGLE_DARK_MODE':
-            return {
-                ...state,
-                darkMode: !state.darkMode,
-            };
         default:
         return state;
     }
