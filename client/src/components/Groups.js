@@ -36,7 +36,7 @@ const Groups = () => {
             {showModal && ( <CreateModal setShowModal={setShowModal} showModal={showModal} />) }
             <Search placeholderText='Search Groups...' searchText={searchText} onChange={value => setSearchText(value)}/>
             {groupData && groupData.getGroups.length === 0 && (
-                <p className="text-xl rounded-xl bg-gray-400 px-2 py-5">You are not part of any group!☹️</p>
+                <p className="text-xl rounded-xl text-center bg-gray-400 px-3 py-5">You are not part of any group!</p>
             )}
             <Scrollbars autoHide hideTracksWhenNotNeeded>
             {groupData && groupData.getGroups.filter((group) =>group.name.toLowerCase().includes(searchText.toLocaleLowerCase())).map((group) => (
