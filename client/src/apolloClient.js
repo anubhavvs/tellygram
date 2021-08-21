@@ -4,8 +4,8 @@ import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
 import storage from './utils/localStorage';
 
-const http = 'http://localhost:5000/'
-const ws = 'ws://localhost:5000/graphql'
+const http = 'https://tellygram-backend.herokuapp.com'
+const ws = 'wss://tellygram-backend.herokuapp.com/graphql'
 
 const authLink = setContext((_, { headers }) => {
     const loggedUser = storage.loadUser();
