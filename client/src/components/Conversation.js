@@ -252,7 +252,7 @@ const Conversation = () => {
             {messageDisplay()}
             <SenderBox />
         </div>
-        <Panel addUser={addUser} setAddUser={() => setAddUser(!addUser)} info={info} setInfo={() => setInfo(!info)}/>
+        <Panel addUserPanel={addUser} setAddUserPanel={() => setAddUser(!addUser)} infoPanel={info} setInfoPanel={() => setInfo(!info)}/>
         </>
     )
 }
