@@ -1,20 +1,20 @@
 {
-    "development": {
-        "username": "postgres",
-        "password": "admin",
-        "database": "pern-chat",
-        "host": "127.0.0.1",
-        "port": "6050",
-        "dialect": "postgres"
-    },
-    "production": {
-        "dialect": "postgres",
-        "use_env_variable": "DATABASE_URL",
-        "dialectOptions": {
-            "ssl": {
-                "require": true,
-                "rejectUnauthorized": false
-            }
-        }
+  "development": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "pern-chat",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "production": {
+    "dialect": "postgres",
+    "use_env_variable": "DATABASE_URL",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
     }
+  }
 }
