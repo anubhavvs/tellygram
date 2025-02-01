@@ -1,11 +1,17 @@
-import { ApolloClient, HttpLink, InMemoryCache, split } from "@apollo/client";
-import { setContext } from "apollo-link-context";
-import { WebSocketLink } from "@apollo/client/link/ws";
-import { getMainDefinition } from "@apollo/client/utilities";
-import storage from "./utils/localStorage";
+import { ApolloClient, HttpLink, InMemoryCache, split } from '@apollo/client';
+import { setContext } from 'apollo-link-context';
+import { WebSocketLink } from '@apollo/client/link/ws';
+import { getMainDefinition } from '@apollo/client/utilities';
+import storage from './utils/localStorage';
 
-const http = "https://t-b7ld.onrender.com/";
-const ws = "wss://t-b7ld.onrender.com/graphql";
+const http =
+  process.env.REACT_APP_NODE_ENV === 'production'
+    ? process.env.REACT_APP_BACKEND_REST_URL
+    : 'http://localhost:4000';
+const ws =
+  process.env.REACT_APP_NODE_ENV === 'production'
+    ? process.env.REACT_APP_BACKEND_WS_URL
+    : 'ws://localhost:4000/graphql';
 
 const authLink = setContext((_, { headers }) => {
   const loggedUser = storage.loadUser();
@@ -39,8 +45,8 @@ const splitLink = split(
   ({ query }) => {
     const defination = getMainDefinition(query);
     return (
-      defination.kind === "OperationDefinition" &&
-      defination.operation === "subscription"
+      defination.kind === 'OperationDefinition' &&
+      defination.operation === 'subscription'
     );
   },
   wsLink,
